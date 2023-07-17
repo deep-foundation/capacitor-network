@@ -1,12 +1,13 @@
 import { ConnectionStatus, Network } from "@capacitor/network"
 import { DeepClient, SerialOperation } from "@deep-foundation/deeplinks/imports/client";
-import { PACKAGE_NAME } from "./package-name";import { LinkName } from "./link-name";
+import { PACKAGE_NAME } from "./package-name";
+import { LinkName } from "./link-name";
 
 
 interface ISaveNetworkStatusOptions {
   deep: DeepClient,
   containerLinkId: number,
-  connectionStatuses: Array<ConnectionStatus>
+  connectionStatuses?: ConnectionStatus[]
 }
 
 export async function saveNetworkStatuses({ deep, containerLinkId, connectionStatuses }: ISaveNetworkStatusOptions) {
@@ -19,9 +20,9 @@ export async function saveNetworkStatuses({ deep, containerLinkId, connectionSta
   const trueLinkId = await deep.id("@freephoenix888/boolean", LinkName[LinkName.True]);
   const falseLinkId = await deep.id("@freephoenix888/boolean", LinkName[LinkName.False]);
 
-  if (connectionStatuses.length === 0) {
+  if (!connectionStatuses) {
     const connectionStatus = await Network.getStatus()
-    connectionStatuses.push(connectionStatus)
+    return connectionStatuses = [connectionStatus];
   }
 
   const { data: [{ id: networkLinkId }] } = await deep.select({

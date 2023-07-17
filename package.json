@@ -22,6 +22,11 @@
     "./deep.json"
   ],
   "license": "Unlicense",
+  "dependencies": {
+    "@deep-foundation/core": "^0.0.2",
+    "@deep-foundation/device": "~1.0.0",
+    "@freephoenix888/boolean": "^0.0.1"
+  },
   "peerDependencies": {
     "@capacitor/network": "^5.0.6",
     "@chakra-ui/react": "^2.5.5",

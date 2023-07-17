@@ -1,0 +1,41 @@
+{
+  "name": "@deep-foundation/capacitor-network",
+  "type": "module",
+  "keywords": [
+    "deep-package"
+  ],
+  "version": "0.0.1",
+  "description": "A deep package that is based on @capacitor/network package",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/deep-foundation/capacitor-network"
+  },
+  "scripts": {
+    "build": "fse remove dist && tsc",
+    "npm-pull": "npm-pull",
+    "npm-release": "npm-release"
+  },
+  "main": "dist/main.js",
+  "types": "dist/main.d.ts",
+  "files": [
+    "/dist",
+    "./deep.json"
+  ],
+  "license": "Unlicense",
+  "peerDependencies": {
+    "@capacitor/network": "^5.0.6",
+    "@chakra-ui/react": "^2.5.5",
+    "@deep-foundation/deeplinks": "~0.0.181",
+    "react": "^18.2.0",
+    "react-device-detect": "^2.2.3"
+  },
+  "devDependencies": {
+    "@atao60/fse-cli": "^0.1.7",
+    "@capacitor/cli": "^5.0.0",
+    "@deep-foundation/npm-automation": "^3.1.18",
+    "@types/fs-extra": "^11.0.1",
+    "@types/node": "^20.2.4",
+    "fs-extra": "^11.1.1",
+    "typescript": "^4.9.5"
+  }
+}

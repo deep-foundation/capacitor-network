@@ -7,18 +7,22 @@ import { useNetworkStatus } from '../hooks/use-network-status';
 import { useCurrentStatus } from '../hooks/use-current-status';
 
 /**
- * React component that manages network state.
+ * React component that manages network state. 
  * @param {DeepClient} deep - The DeepClient object instance.
  */
-
 export function NetworkStatus({ deep }: { deep: DeepClient; }) {
 
-  const containerLinkId = useContainer(deep); // Get the container's link ID  using deep client instance.
-  const { connectionStatuses, subscribeToNetworkStatusChanges } = useNetworkStatus({ deep, containerLinkId }); // Get the current network status and a function to subscribe to network status changes.
+  const containerLinkId = useContainer(deep); // Get the container's link ID using deep client instance.
+  const { connectionStatuses, subscribeToNetworkStatusChanges } = useNetworkStatus({ deep, containerLinkId });
+  // Get the current network status and a function to subscribe to network status changes.
+
   const { currentStatus, loadCurrentStatus } = useCurrentStatus({ deep, containerLinkId });
-  // A render function that returns a stack layout UI, with two buttons 
-  // one for subscribing to network changes, and another one for saving the current network state.
-  // map function to display all connnection statuses existing in local store variable connectionStatuses.
+  // Get the current network status and a function to load it.
+
+  /**
+   * Render function that returns a stack layout UI with two buttons: one for subscribing to network changes and another one for saving the current network state.
+   * It also displays all connection statuses existing in the local store variable connectionStatuses.
+   */
   return (
     <Stack>
       <Text size="lg">NETWORK STATE</Text>

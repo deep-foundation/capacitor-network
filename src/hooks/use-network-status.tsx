@@ -11,6 +11,8 @@ export interface IUseNetworkStatusProps {
 }
 
 // This custom hook function accepts deep and containerLinkId as parameters.
+// connectionStatusChangeHandler state to manage network event listeners.
+// connectionStatuses state to store event data when device is offline.
 export const useNetworkStatus = ({ deep, containerLinkId }: IUseNetworkStatusProps) => {
 
   // Initialize connectionStatuses state with an empty array using the useState hook.

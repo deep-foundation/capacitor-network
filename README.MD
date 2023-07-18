@@ -84,4 +84,6 @@ const containerLinkId = useContainer(deep);
 
 Feel free to contribute. Please fork the repository and submit a pull request for any bugs, improvements, or features.
 
-[`NetworkStatus`]: https://deep-foundation.github.io/capacitor-device/enums/LinkName.html#NetworkStatus
+[`NetworkStatus`]: https://deep-foundation.github.io/capacitor-network/enums/LinkName.html#NetworkStatus
+[`NetworkStatusType`]: https://deep-foundation.github.io/capacitor-network/interfaces/NetworkStatusType.html
+[`@capacitor/network`]: https://www.npmjs.com/package/@capacitor/network

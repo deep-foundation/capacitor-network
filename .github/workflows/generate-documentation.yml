@@ -1,0 +1,10 @@
+name: Generate Documentation
+
+on:
+  workflow_dispatch:
+
+jobs:
+  main:
+    uses: deep-foundation/workflows/.github/workflows/generate-documentation.yml@main
+    with:
+      generate-documentation-command: "npx --yes typedoc src/main.ts"

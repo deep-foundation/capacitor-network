@@ -47,7 +47,7 @@ await getCurrentStatus({ deep, containerLinkId })
 ```
 
 ## React Usage
-1. Import CapacitorCamera react component or hooks:
+1. Import NetworkStatus react component or hooks:
 
 ```js
 import { NetworkStatus, useNetworkStatus, useCurrentStatus, useContainer } from "@deep-foundation/capacitor-network";

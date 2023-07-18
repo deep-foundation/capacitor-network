@@ -7,3 +7,13 @@ export { LinkName } from './link-name';
 export { NetworkStatus } from './components/network';
 export { useContainer } from './hooks/use-container';
 export { useNetworkStatus, type IUseNetworkStatusProps } from './hooks/use-network-status';
+
+import { createContainer } from './create-container';
+import { getCurrentStatus } from './get-current-status';
+import { saveNetworkStatus } from './save-network-status';
+
+export const Network = {
+    createContainer,
+    getCurrentStatus,
+    saveNetworkStatus
+}

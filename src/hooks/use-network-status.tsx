@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { ConnectionStatus, Network } from '@capacitor/network';
 import { useLocalStore } from '@deep-foundation/store/local';
-import { saveNetworkStatuses } from '../save-network-status';
+import { saveNetworkStatus } from '../save-network-status';
 import { PluginListenerHandle } from '@capacitor/core';
 import { DeepClient } from '@deep-foundation/deeplinks/imports/client';
 
-interface IUseNetworkStatusProps {
+export interface IUseNetworkStatusProps {
   deep: DeepClient,
   containerLinkId: number,
 }
@@ -56,7 +56,7 @@ export const useNetworkStatus = ({ deep, containerLinkId }: IUseNetworkStatusPro
       }
       // If there are connection statuses in the state, save them and empty the state.
       if (connectionStatuses.length > 0) {
-        saveNetworkStatuses({ deep, containerLinkId, connectionStatuses });
+        saveNetworkStatus({ deep, containerLinkId, connectionStatuses });
         setConnectionStatuses([]);
       }
     });
@@ -69,5 +69,5 @@ export const useNetworkStatus = ({ deep, containerLinkId }: IUseNetworkStatusPro
   }, [containerLinkId]);
 
   // Return connectionStatuses state and subscribeToNetworkStatusChanges function.
-  return {connectionStatuses, subscribeToNetworkStatusChanges};
+  return { connectionStatuses, subscribeToNetworkStatusChanges };
 }

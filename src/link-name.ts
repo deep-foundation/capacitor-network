@@ -10,11 +10,12 @@ const networkTypeLinkId = await deep.id(
 ```
  */
 export enum LinkName {
-    Network,
-    Wifi,
-    Cellular,
-    Unknown,
-    None,
-    True,
-    False
- }
+   NetworkStatus,
+   Network,
+   Wifi,
+   Cellular,
+   Unknown,
+   None,
+   True,
+   False
+}

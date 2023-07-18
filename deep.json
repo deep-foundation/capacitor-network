@@ -1,7 +1,7 @@
 {
   "package": {
     "name": "@deep-foundation/capacitor-network",
-    "version": "0.0.1"
+    "version": "0.0.2"
   },
   "data": [
     {
@@ -14,29 +14,39 @@
     {
       "package": {
         "dependencyId": 1,
-        "containValue": "True"
+        "containValue": "Device"
       },
       "id": 2
+    },
+    {
+      "package": {
+        "dependencyId": 2,
+        "containValue": "True"
+      },
+      "id": 3
     },
     {
       "package": {
         "dependencyId": 0,
         "containValue": "Any"
       },
-      "id": 3
+      "id": 4
     },
     {
-      "package": {
-        "dependencyId": 2,
-        "containValue": "Device"
-      },
-      "id": 4
+      "id": "DeviceDependency",
+      "type": 1,
+      "from": 2,
+      "to": 2
+    },
+    {
+      "id": "NetworkStatus",
+      "type": 1
     },
     {
       "id": "BooleanDependency",
       "type": 1,
-      "from": 2,
-      "to": 2
+      "from": 3,
+      "to": 3
     },
     {
       "id": "Network",
@@ -46,30 +56,24 @@
       "id": "None",
       "type": 1,
       "from": "Network",
-      "to": 3
+      "to": 4
     },
     {
       "id": "Unknown",
       "type": 1,
       "from": "Network",
-      "to": 3
+      "to": 4
     },
     {
       "id": "Cellular",
       "type": 1,
       "from": "Network",
-      "to": 3
+      "to": 4
     },
     {
       "id": "Wifi",
       "type": 1,
       "from": "Network",
-      "to": 3
-    },
-    {
-      "id": "DeviceDependency",
-      "type": 1,
-      "from": 4,
       "to": 4
     }
   ],
@@ -80,12 +84,12 @@
       "version": "0.0.2"
     },
     {
-      "name": "@freephoenix888/boolean",
-      "version": "0.0.1"
+      "name": "@deep-foundation/device",
+      "version": "1.0.1"
     },
     {
-      "name": "@deep-foundation/device",
-      "version": "1.0.0"
+      "name": "@freephoenix888/boolean",
+      "version": "0.0.1"
     }
   ]
 }

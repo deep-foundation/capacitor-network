@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { DeepClient } from '@deep-foundation/deeplinks/imports/client';
 import { Button, Stack, Text } from '@chakra-ui/react';
-import { saveNetworkStatuses } from '../save-network-status';
+import { saveNetworkStatus } from '../save-network-status';
 import { useContainer } from '../hooks/use-container';
 import { useNetworkStatus } from '../hooks/use-network-status';
+import { useCurrentStatus } from '../hooks/use-current-status';
 
 /**
  * React component that manages network state.
@@ -14,7 +15,7 @@ export function NetworkStatus({ deep }: { deep: DeepClient; }) {
 
   const containerLinkId = useContainer(deep); // Get the container's link ID  using deep client instance.
   const { connectionStatuses, subscribeToNetworkStatusChanges } = useNetworkStatus({ deep, containerLinkId }); // Get the current network status and a function to subscribe to network status changes.
-
+  const { currentStatus, loadCurrentStatus } = useCurrentStatus({ deep, containerLinkId });
   // A render function that returns a stack layout UI, with two buttons 
   // one for subscribing to network changes, and another one for saving the current network state.
   // map function to display all connnection statuses existing in local store variable connectionStatuses.
@@ -29,17 +30,22 @@ export function NetworkStatus({ deep }: { deep: DeepClient; }) {
         <Text>SUBSCRIBE</Text>
       </Button>
       <Button
-        onClick={async () => await saveNetworkStatuses({ deep, containerLinkId })}
+        onClick={async () => await saveNetworkStatus({ deep, containerLinkId, connectionStatuses: [] })}
       >
         <Text>SAVE CURRENT</Text>
       </Button>
-      <Text>CURRENT:</Text>
-      {connectionStatuses.map((status) => (
-        <Stack>
-          <Text>{status.connectionType}</Text>
-          <Text>{status.connected ? "connected" : "disconnected"}</Text>
-        </Stack>
-      ))}
+      <Button
+        onClick={async () => loadCurrentStatus()}
+      >
+        <Text>GET CURRENT</Text>
+      </Button>
+      {currentStatus ?
+        (<Stack direction="row">
+          <Text>CURRENT:</Text>
+          <Text>{currentStatus}</Text>
+        </Stack>)
+        : null
+      }
     </Stack>
   );
 }

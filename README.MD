@@ -17,7 +17,7 @@ You need only one container link per deep instance.
 - Install this package in your deep by using npm-packager
 - Provide permissions to this package
 
-## Usage
+## Library Usage
 1. Import the library into your TypeScript project:
 
 ```js
@@ -27,7 +27,7 @@ import Network from "@deep-foundation/capacitor-network";
 2. Create container link of type [`NetworkStatus`] to store Network state:
 
 ```js
-const containerLinkId = await createContainer(deep:DeepClient)
+const containerLinkId = await Network.createContainer(deep:DeepClient)
 ```
 
 You can also create it manually inside your deepcase client. Open Insert menu, search for and then insert "NetworkStatus" type link.
@@ -36,14 +36,14 @@ You can also create it manually inside your deepcase client. Open Insert menu, s
 
 Call saveNetworkStatus function and pass an empty array as connectionStatuses to automatically get current network state and upload data as links to your deep instance.
 ```js
-await saveNetworkStatus({ deep, containerLinkId, connectionStatuses: [] })
+await Network.saveNetworkStatus({ deep, containerLinkId, connectionStatuses: [] })
 ```
 
 4. Get current status of the network as [`NetworkStatusType`] from your deep instance:
 
 Call getCurrentStatus function and pass your deep instance with container link ID.
 ```js
-await getCurrentStatus({ deep, containerLinkId })
+await Network.getCurrentStatus({ deep, containerLinkId })
 ```
 
 ## React Usage

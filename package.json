@@ -11,7 +11,8 @@
     "url": "https://github.com/deep-foundation/capacitor-network"
   },
   "scripts": {
-    "package:build": "fse remove dist && tsc",
+    "build": "tsc",
+    "clean-build": "fse remove dist && npm run build",
     "npm-pull": "npm-pull",
     "npm-release": "npm-release"
   },

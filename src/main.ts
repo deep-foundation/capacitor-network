@@ -12,6 +12,8 @@ import { createContainer } from './create-container';
 import { getCurrentStatus } from './get-current-status';
 import { saveNetworkStatus } from './save-network-status';
 
+export {Package,PackageOptions} from './package'
+
 export const Network = {
     createContainer,
     getCurrentStatus,

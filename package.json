@@ -34,7 +34,7 @@
   "peerDependencies": {
     "@capacitor/network": "^5.0.6",
     "@chakra-ui/react": "^2.5.5",
-    "@deep-foundation/deeplinks": "~0.0.265",
+    "@deep-foundation/deeplinks": "~0.0.271",
     "react": "^18.2.0",
     "react-device-detect": "^2.2.3"
   },

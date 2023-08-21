@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { getCurrentStatus } from '../get-current-status';
-import { IUseNetworkStatusProps } from './use-network-status';
+import { getCurrentStatus } from '../get-current-status.js';
+import { IUseNetworkStatusProps } from './use-network-status.js';
 
 export const useCurrentStatus = ({ deep, containerLinkId }: IUseNetworkStatusProps) => {
   // Define state variable to store currentStatus.

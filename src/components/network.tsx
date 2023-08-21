@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { DeepClient } from '@deep-foundation/deeplinks/imports/client.js';
 import { Button, Stack, Text } from '@chakra-ui/react';
-import { saveNetworkStatus } from '../save-network-status';
-import { useContainer } from '../hooks/use-container';
-import { useNetworkStatus } from '../hooks/use-network-status';
-import { useCurrentStatus } from '../hooks/use-current-status';
+import { saveNetworkStatus } from '../save-network-status.js';
+import { useContainer } from '../hooks/use-container.js';
+import { useNetworkStatus } from '../hooks/use-network-status.js';
+import { useCurrentStatus } from '../hooks/use-current-status.js';
 
 /**
  * React component that manages network state. 

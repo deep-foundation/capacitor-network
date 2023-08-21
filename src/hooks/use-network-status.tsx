@@ -3,7 +3,7 @@ import { ConnectionStatus, Network } from '@capacitor/network';
 import { useLocalStore } from '@deep-foundation/store/local';
 import { saveNetworkStatus } from '../save-network-status';
 import { PluginListenerHandle } from '@capacitor/core';
-import { DeepClient } from '@deep-foundation/deeplinks/imports/client';
+import { DeepClient } from '@deep-foundation/deeplinks/imports/client.js';
 
 export interface IUseNetworkStatusProps {
   deep: DeepClient,

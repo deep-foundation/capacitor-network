@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useLocalStore } from '@deep-foundation/store/local';
-import { DeepClient } from '@deep-foundation/deeplinks/imports/client';
+import { DeepClient } from '@deep-foundation/deeplinks/imports/client.js';
 import { createContainer } from '../create-container';
 
 // Hook to manage the container link for network status.

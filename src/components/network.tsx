@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { DeepClient } from '@deep-foundation/deeplinks/imports/client';
+import { DeepClient } from '@deep-foundation/deeplinks/imports/client.js';
 import { Button, Stack, Text } from '@chakra-ui/react';
 import { saveNetworkStatus } from '../save-network-status';
 import { useContainer } from '../hooks/use-container';

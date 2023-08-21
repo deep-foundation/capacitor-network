@@ -1,7 +1,7 @@
 import { ConnectionStatus, Network } from "@capacitor/network"
-import { DeepClient } from "@deep-foundation/deeplinks/imports/client";
-import { PACKAGE_NAME } from "./package-name";
-import { LinkName } from "./link-name";
+import { DeepClient } from "@deep-foundation/deeplinks/imports/client.js";
+import { PACKAGE_NAME } from "./package-name.js";
+import { LinkName } from "./link-name.js";
 
 // Define the type for NetworkStatusType which can have specific values.
 export type NetworkStatusType = 'wifi' | 'cellular' | 'none' | 'unknown' | string;

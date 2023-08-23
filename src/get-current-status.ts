@@ -1,62 +1,91 @@
 import { ConnectionStatus, Network } from "@capacitor/network"
-import { DeepClient } from "@deep-foundation/deeplinks/imports/client.js";
-import { PACKAGE_NAME } from "./package-name.js";
-import { LinkName } from "./link-name.js";
+import { DeepClient } from "@deep-foundation/deeplinks/imports/client";
+import { PACKAGE_NAME } from "./package-name";
+import { LinkName } from "./link-name";
+import { Link } from "@deep-foundation/deeplinks/imports/minilinks";
 
-// Define the type for NetworkStatusType which can have specific values.
+// Define NetworkStatusType as a union type of network status strings.
 export type NetworkStatusType = 'wifi' | 'cellular' | 'none' | 'unknown' | string;
 
-// Function to get the current network status.
-// Takes an object with properties 'deep' (of type DeepClient) and 'containerLinkId' (of type number).
-// Returns a Promise that resolves to the NetworkStatusType.
-export const getCurrentStatus = async ({ deep, containerLinkId }: { deep: DeepClient, containerLinkId: number }): Promise<NetworkStatusType> => {
+/**
+ * Asynchronously get the current status of network connectivity.
+ *
+ * @param {object} {deep: DeepClient, containerLinkId: number}
+ * @returns {Promise<NetworkStatusType>}
+ */
 
-  // Get the IDs for the required link types from the deep client.
-  const containTypeLinkId = await deep.id("@deep-foundation/core", "Contain");
+export const getCurrentStatus = async ({
+  deep,
+  containerLinkId,
+}: {
+  deep: DeepClient;
+  containerLinkId: number;
+}): Promise<NetworkStatusType> => {
+  // Get link IDs for specific link types from deep space.
+  const containTypeLinkId = await deep.id('@deep-foundation/core', 'Contain');
   const networkStatusTypeLinkId = await deep.id(PACKAGE_NAME, LinkName[LinkName.NetworkStatus]);
+  
+  // Ids corresponding to different types of network status.
   const networkTypeLinkId = await deep.id(PACKAGE_NAME, LinkName[LinkName.Network]);
   const wifiTypeLinkId = await deep.id(PACKAGE_NAME, LinkName[LinkName.Wifi]);
   const cellularTypeLinkId = await deep.id(PACKAGE_NAME, LinkName[LinkName.Cellular]);
   const unknownTypeLinkId = await deep.id(PACKAGE_NAME, LinkName[LinkName.Unknown]);
   const noneTypeLinkId = await deep.id(PACKAGE_NAME, LinkName[LinkName.None]);
-  const trueLinkId = await deep.id("@freephoenix888/boolean", LinkName[LinkName.True]);
 
-  // Select the network link based on the containerLinkId.
-  const { data: [{ id: networkLinkId }] } = await deep.select({
-    type_id: networkTypeLinkId,
-    in: {
-      type_id: containTypeLinkId,
-      from_id: containerLinkId,
+  let networkStatusType = '';
+
+  // Check if container link ID exists.
+  if (containerLinkId) {
+    console.log('containerLinkId: ', containerLinkId);
+
+    // Fetch link related to the Network type.
+    const { data: networkTypeSelectResponse } = await deep.select({
+      type_id: networkTypeLinkId,
+      in: {
+        type_id: containTypeLinkId,
+        from_id: containerLinkId,
+      },
+    });
+
+    // Extract the link ID for the type Network from the response.
+    const networkLinkId =
+      networkTypeSelectResponse.filter((link: Link<number>) => link.type_id === networkTypeLinkId)[0]?.id;
+
+    // Check if the network link ID exists.
+    if (networkLinkId) {
+       // Fetch all links under the object that network is linked to.
+       const { data: currentNetworkStatusSelectResponse } = await deep.select({
+        in: {
+          type_id: containTypeLinkId,
+          from_id: containerLinkId,
+        },
+        from_id: networkLinkId,
+      });
+
+      // Extract the type ID for the current network status from the response.
+      const currentNetworkStatusTypeId = currentNetworkStatusSelectResponse[0]?.type_id;
+
+      // Map the current network status type ID to an equivalent network status string.
+      switch (currentNetworkStatusTypeId) {
+        case wifiTypeLinkId:
+          networkStatusType = 'wifi';
+          break;
+        case cellularTypeLinkId:
+          networkStatusType = 'cellular';
+          break;
+        case unknownTypeLinkId:
+          networkStatusType = 'unknown';
+          break;
+        case noneTypeLinkId:
+          networkStatusType = 'none';
+          break;
+      }
     }
-  });
-
-  // Select the current network status type for the network link.
-  const { data: [{ type_id: currentNetworkStatusTypeId }] } = await deep.select({
-    in: {
-      type_id: containTypeLinkId,
-      from_id: networkStatusTypeLinkId,
-    },
-    from_id: networkLinkId,
-    to_id: trueLinkId
-  });
-
-  // Determine the network status type based on the currentNetworkStatusTypeId.
-  let networkStatusType = "";
-  switch (currentNetworkStatusTypeId) {
-    case wifiTypeLinkId: 
-      networkStatusType = 'wifi';
-      break;
-    case cellularTypeLinkId: 
-      networkStatusType = 'cellular';
-      break;
-    case unknownTypeLinkId: 
-      networkStatusType = 'unknown';
-      break;
-    case noneTypeLinkId: 
-      networkStatusType = 'none';
-      break;
   }
   
-  // Return the determined network status type.
+  // Log the determined network status type.
+  console.log('networkStatusType: ', networkStatusType);
+  
+  // Return the identified network status.
   return networkStatusType;
-}
+};

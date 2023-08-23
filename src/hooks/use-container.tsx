@@ -10,7 +10,7 @@ import { createContainer } from '../create-container.js';
 
 export const useContainer = (deep: DeepClient) => {
     const [containerLinkId, setContainerLinkId] = useLocalStore<number | undefined>(
-        'networkStatusLinkId',
+        'containerLinkId',
         undefined
     );
 

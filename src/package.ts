@@ -19,40 +19,37 @@ const {name: packageName} = package;
 #### Use id method to get the id of the link
 ```ts
 const package = new Package({deep});
-const networkTypeLinkId = await package["Network"].id();
-const deviceDependencyTypeLinkId = await package["DeviceDependency"].id();
-const networkStatusTypeLinkId = await package["NetworkStatus"].id();
 const booleanDependencyTypeLinkId = await package["BooleanDependency"].id();
+const networkTypeLinkId = await package["Network"].id();
 const noneTypeLinkId = await package["None"].id();
 const unknownTypeLinkId = await package["Unknown"].id();
 const cellularTypeLinkId = await package["Cellular"].id();
 const wifiTypeLinkId = await package["Wifi"].id();
+const networkStatusTypeLinkId = await package["NetworkStatus"].id();
 ```
 
 #### Use idLocal method to get the local id of the link
 ```ts
 const package = new Package({deep});
 await package.applyMinilinks();
-const networkTypeLinkId = package["Network"].idLocal();
-const deviceDependencyTypeLinkId = package["DeviceDependency"].idLocal();
-const networkStatusTypeLinkId = package["NetworkStatus"].idLocal();
 const booleanDependencyTypeLinkId = package["BooleanDependency"].idLocal();
+const networkTypeLinkId = package["Network"].idLocal();
 const noneTypeLinkId = package["None"].idLocal();
 const unknownTypeLinkId = package["Unknown"].idLocal();
 const cellularTypeLinkId = package["Cellular"].idLocal();
 const wifiTypeLinkId = package["Wifi"].idLocal();
+const networkStatusTypeLinkId = package["NetworkStatus"].idLocal();
 ```
 #### Use name field to get the name of the link
 ```ts
 const package = new Package({deep});
-const network = package["Network"].name;
-const deviceDependency = package["DeviceDependency"].name;
-const networkStatus = package["NetworkStatus"].name;
 const booleanDependency = package["BooleanDependency"].name;
+const network = package["Network"].name;
 const none = package["None"].name;
 const unknown = package["Unknown"].name;
 const cellular = package["Cellular"].name;
 const wifi = package["Wifi"].name;
+const networkStatus = package["NetworkStatus"].name;
 ```
 */
 export class Package extends BasePackage {
@@ -65,63 +62,6 @@ export class Package extends BasePackage {
   }
 
 
-      /**
-      @example
-      #### Use id method to get the id of the Network link
-      ```ts
-      const package = new Package({deep});
-      const networkTypeLinkId = await package["Network"].id();
-      ```
-      #### Use localId method to get the local id of the Network link
-      ```ts
-      const package = new Package({deep});
-      const networkTypeLinkId = await package["Network"].localId();
-      ```
-      #### Use name field to get the name of the Network link
-      ```ts
-      const package = new Package({deep});
-      const network = await package["Network"].name;
-      ```
-      */
-      public "Network" = this.createEntity("Network");
-      /**
-      @example
-      #### Use id method to get the id of the DeviceDependency link
-      ```ts
-      const package = new Package({deep});
-      const deviceDependencyTypeLinkId = await package["DeviceDependency"].id();
-      ```
-      #### Use localId method to get the local id of the DeviceDependency link
-      ```ts
-      const package = new Package({deep});
-      const deviceDependencyTypeLinkId = await package["DeviceDependency"].localId();
-      ```
-      #### Use name field to get the name of the DeviceDependency link
-      ```ts
-      const package = new Package({deep});
-      const deviceDependency = await package["DeviceDependency"].name;
-      ```
-      */
-      public "DeviceDependency" = this.createEntity("DeviceDependency");
-      /**
-      @example
-      #### Use id method to get the id of the NetworkStatus link
-      ```ts
-      const package = new Package({deep});
-      const networkStatusTypeLinkId = await package["NetworkStatus"].id();
-      ```
-      #### Use localId method to get the local id of the NetworkStatus link
-      ```ts
-      const package = new Package({deep});
-      const networkStatusTypeLinkId = await package["NetworkStatus"].localId();
-      ```
-      #### Use name field to get the name of the NetworkStatus link
-      ```ts
-      const package = new Package({deep});
-      const networkStatus = await package["NetworkStatus"].name;
-      ```
-      */
-      public "NetworkStatus" = this.createEntity("NetworkStatus");
       /**
       @example
       #### Use id method to get the id of the BooleanDependency link
@@ -141,6 +81,25 @@ export class Package extends BasePackage {
       ```
       */
       public "BooleanDependency" = this.createEntity("BooleanDependency");
+      /**
+      @example
+      #### Use id method to get the id of the Network link
+      ```ts
+      const package = new Package({deep});
+      const networkTypeLinkId = await package["Network"].id();
+      ```
+      #### Use localId method to get the local id of the Network link
+      ```ts
+      const package = new Package({deep});
+      const networkTypeLinkId = await package["Network"].localId();
+      ```
+      #### Use name field to get the name of the Network link
+      ```ts
+      const package = new Package({deep});
+      const network = await package["Network"].name;
+      ```
+      */
+      public "Network" = this.createEntity("Network");
       /**
       @example
       #### Use id method to get the id of the None link
@@ -217,6 +176,25 @@ export class Package extends BasePackage {
       ```
       */
       public "Wifi" = this.createEntity("Wifi");
+      /**
+      @example
+      #### Use id method to get the id of the NetworkStatus link
+      ```ts
+      const package = new Package({deep});
+      const networkStatusTypeLinkId = await package["NetworkStatus"].id();
+      ```
+      #### Use localId method to get the local id of the NetworkStatus link
+      ```ts
+      const package = new Package({deep});
+      const networkStatusTypeLinkId = await package["NetworkStatus"].localId();
+      ```
+      #### Use name field to get the name of the NetworkStatus link
+      ```ts
+      const package = new Package({deep});
+      const networkStatus = await package["NetworkStatus"].name;
+      ```
+      */
+      public "NetworkStatus" = this.createEntity("NetworkStatus");
 
 }
 

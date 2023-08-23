@@ -28,7 +28,6 @@
   "license": "Unlicense",
   "dependencies": {
     "@deep-foundation/core": "~0.0.2",
-    "@deep-foundation/capacitor-device": "~14.0.3",
     "@freephoenix888/boolean": "~0.0.1"
   },
   "peerDependencies": {

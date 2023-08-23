@@ -1,7 +1,7 @@
 {
   "package": {
     "name": "@deep-foundation/capacitor-network",
-    "version": "0.1.4"
+    "version": "0.1.5"
   },
   "data": [
     {
@@ -14,67 +14,54 @@
     {
       "package": {
         "dependencyId": 1,
-        "containValue": "Device"
-      },
-      "id": 2
-    },
-    {
-      "package": {
-        "dependencyId": 2,
         "containValue": "True"
       },
-      "id": 3
+      "id": 2
     },
     {
       "package": {
         "dependencyId": 0,
         "containValue": "Any"
       },
-      "id": 4
+      "id": 3
+    },
+    {
+      "id": "BooleanDependency",
+      "type": 1,
+      "from": 2,
+      "to": 2
     },
     {
       "id": "Network",
       "type": 1
     },
     {
-      "id": "DeviceDependency",
-      "type": 1,
-      "from": 2,
-      "to": 2
-    },
-    {
-      "id": "NetworkStatus",
-      "type": 1
-    },
-    {
-      "id": "BooleanDependency",
-      "type": 1,
-      "from": 3,
-      "to": 3
-    },
-    {
       "id": "None",
       "type": 1,
       "from": "Network",
-      "to": 4
+      "to": 3
     },
     {
       "id": "Unknown",
       "type": 1,
       "from": "Network",
-      "to": 4
+      "to": 3
     },
     {
       "id": "Cellular",
       "type": 1,
       "from": "Network",
-      "to": 4
+      "to": 3
     },
     {
       "id": "Wifi",
       "type": 1,
       "from": "Network",
-      "to": 4
+      "to": 3
+    },
+    {
+      "id": "NetworkStatus",
+      "type": 1
     }
   ],
   "errors": [],
@@ -82,10 +69,6 @@
     {
       "name": "@deep-foundation/core",
       "version": "0.0.2"
-    },
-    {
-      "name": "@deep-foundation/capacitor-device",
-      "version": "14.0.3"
     },
     {
       "name": "@freephoenix888/boolean",

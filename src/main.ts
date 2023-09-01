@@ -7,6 +7,7 @@ export { LinkName } from './link-name.js';
 export { NetworkStatus } from './components/network.js';
 export { useContainer } from './hooks/use-container.js';
 export { useNetworkStatus, type IUseNetworkStatusProps } from './hooks/use-network-status.js';
+export {useCurrentStatus} from './hooks/use-current-status.js'
 
 import { createContainer } from './create-container.js';
 import { getCurrentStatus } from './get-current-status.js';

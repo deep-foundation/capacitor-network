@@ -4,6 +4,7 @@ export { saveNetworkStatus, type ISaveNetworkStatusOptions } from './save-networ
 export { uploadStatus, type IUploadStatusOptions } from './upload-status.js';
 export { getCurrentStatus, type NetworkStatusType } from './get-current-status.js';
 export { LinkName } from './link-name.js';
+export { WithNetworkStatus } from './components/with-network-status.js'
 export { NetworkStatus } from './components/network.js';
 export { useContainer } from './hooks/use-container.js';
 export { useNetworkStatus, type IUseNetworkStatusProps } from './hooks/use-network-status.js';

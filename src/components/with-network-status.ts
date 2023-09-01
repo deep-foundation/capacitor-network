@@ -13,7 +13,7 @@ type WithNetworkStatusProps = IUseNetworkStatusProps & {
     children: ReactElement;
 };
 
-const WithNetworkStatus: React.FC<WithNetworkStatusProps> = ({ deep, containerLinkId: passedContainerLinkId, children }) => {
+export const WithNetworkStatus: React.FC<WithNetworkStatusProps> = ({ deep, containerLinkId: passedContainerLinkId, children }) => {
     const containerLinkIdFromHook = useContainer(deep);
     const [containerLinkId, setContainerLinkId] = useState<number>(passedContainerLinkId || containerLinkIdFromHook);
 

@@ -50,7 +50,7 @@ await Network.getCurrentStatus({ deep, containerLinkId })
 1. Import NetworkStatus react component or hooks:
 
 ```js
-import { NetworkStatus, useNetworkStatus, useCurrentStatus, useContainer } from "@deep-foundation/capacitor-network";
+import { WithNetworkStatus, NetworkStatus, useNetworkStatus, useCurrentStatus, useContainer } from "@deep-foundation/capacitor-network";
 ```
 
 2. Create NetworkStatus component instance inside your deep app and pass a DeepClient instance.
@@ -62,6 +62,13 @@ function Page() {
 ```
 
 You will see basic ui with all package functionality.
+
+Or use WithNetworkStatus Component like that:
+```jsx
+<WithNetworkStatus deep={yourDeepInstance} containerLinkId={yourContainerLinkId}>
+    <NetworkStatus />
+</WithNetworkStatus>
+```
 
 3. Custom hooks can be used anywhere in your deep app:
 

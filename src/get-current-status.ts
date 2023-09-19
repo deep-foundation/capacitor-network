@@ -1,8 +1,8 @@
 import { ConnectionStatus, Network } from "@capacitor/network"
-import { DeepClient } from "@deep-foundation/deeplinks/imports/client";
-import { PACKAGE_NAME } from "./package-name";
-import { LinkName } from "./link-name";
-import { Link } from "@deep-foundation/deeplinks/imports/minilinks";
+import { DeepClient } from "@deep-foundation/deeplinks/imports/client.js";
+import { PACKAGE_NAME } from "./package-name.js";
+import { LinkName } from "./link-name.js";
+import { Link } from "@deep-foundation/deeplinks/imports/minilinks.js";
 
 // Define NetworkStatusType as a union type of network status strings.
 export type NetworkStatusType = 'wifi' | 'cellular' | 'none' | 'unknown' | string;

@@ -7,7 +7,7 @@ import {
     uploadStatus,
     IUploadStatusOptions, 
     IUseNetworkStatusProps 
-} from '../main'; 
+} from '../main.js'; 
 
 type WithNetworkStatusProps = IUseNetworkStatusProps & {
     children: ReactElement;

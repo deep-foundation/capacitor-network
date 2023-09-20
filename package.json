@@ -4,7 +4,7 @@
   "keywords": [
     "deep-package"
   ],
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "A deep package that is based on @capacitor/network package",
   "repository": {
     "type": "git",

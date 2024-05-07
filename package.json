@@ -4,7 +4,7 @@
   "keywords": [
     "deep-package"
   ],
-  "version": "0.1.11",
+  "version": "0.1.12",
   "description": "A deep package that is based on @capacitor/network package",
   "repository": {
     "type": "git",
@@ -29,6 +29,7 @@
   "dependencies": {
     "@deep-foundation/capacitor-device": "~14.0.3",
     "@deep-foundation/core": "~0.0.2",
+    "@deep-foundation/tsx": "^0.0.5",
     "@freephoenix888/boolean": "~0.0.1"
   },
   "peerDependencies": {

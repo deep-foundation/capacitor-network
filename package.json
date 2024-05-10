@@ -4,7 +4,7 @@
   "keywords": [
     "deep-package"
   ],
-  "version": "0.1.12",
+  "version": "0.1.13",
   "description": "A deep package that is based on @capacitor/network package",
   "repository": {
     "type": "git",
@@ -33,19 +33,19 @@
     "@freephoenix888/boolean": "~0.0.1"
   },
   "peerDependencies": {
-    "@capacitor/network": "^5.0.6",
-    "@chakra-ui/react": "^2.5.5",
+    "@capacitor/network": "~5.0.6",
+    "@chakra-ui/react": "~2.5.5",
     "@deep-foundation/deeplinks": "~0.0.271",
-    "react": "^18.2.0",
-    "react-device-detect": "^2.2.3"
+    "react": "~18.2.0",
+    "react-device-detect": "~2.2.3"
   },
   "devDependencies": {
-    "@atao60/fse-cli": "^0.1.7",
-    "@capacitor/cli": "^5.0.0",
-    "@deep-foundation/npm-automation": "^18.1.10",
-    "@types/fs-extra": "^11.0.1",
-    "@types/node": "^20.2.4",
-    "fs-extra": "^11.1.1",
-    "typescript": "^4.9.5"
+    "@atao60/fse-cli": "~0.1.7",
+    "@capacitor/cli": "~5.0.0",
+    "@deep-foundation/npm-automation": "~18.1.10",
+    "@types/fs-extra": "~11.0.1",
+    "@types/node": "~20.2.4",
+    "fs-extra": "~11.1.1",
+    "typescript": "~4.9.5"
   }
 }

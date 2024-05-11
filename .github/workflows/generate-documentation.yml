@@ -7,4 +7,4 @@ jobs:
   main:
     uses: deep-foundation/workflows/.github/workflows/generate-documentation.yml@main
     with:
-      generate-documentation-command: "npx --yes typedoc src/main.ts"
+      generate-documentation-command: "npm run documentation:generate"

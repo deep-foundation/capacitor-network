@@ -4,7 +4,7 @@
   "keywords": [
     "deep-package"
   ],
-  "version": "0.1.13",
+  "version": "0.1.15",
   "description": "A deep package that is based on @capacitor/network package",
   "repository": {
     "type": "git",
@@ -34,9 +34,9 @@
   },
   "peerDependencies": {
     "@capacitor/network": "~5.0.6",
-    "@chakra-ui/react": "~2.5.5",
-    "@deep-foundation/deeplinks": "~0.0.271",
-    "react": "~18.2.0",
+    "@chakra-ui/react": "*",
+    "@deep-foundation/deeplinks": "*",
+    "react": "*",
     "react-device-detect": "~2.2.3"
   },
   "devDependencies": {
